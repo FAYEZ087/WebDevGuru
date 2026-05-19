@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# 🚀 WebMakers2: Elite Digital Experiences
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WebMakers2 is a high-end, high-performance digital agency platform built for the next generation of the web. It combines cutting-edge 3D graphics, fluid animations, and a sophisticated design language to deliver an immersive brand experience.
 
-Currently, two official plugins are available:
+![Luxury Web Design](https://img.shields.io/badge/UX%2FUI-Elite-gold)
+![Performance](https://img.shields.io/badge/Performance-Optimized-brightgreen)
+![Tech Stack](https://img.shields.io/badge/Stack-React%2019%20%2B%20Three.js-blue)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **🌌 3D Space Background:** A global, fixed WebGL background featuring a high-resolution Night Earth and distant burning meteorites, powered by Three.js and React Three Fiber.
+- **💧 Liquid Page Transitions:** Multi-layered gold wipe effects using Framer Motion for seamless route changes.
+- **📜 Smooth Scrolling:** Integrated Lenis for a premium, momentum-based scrolling experience.
+- **🧲 Magnetic Interactions:** Custom `MagneticButton` components with "invisible hit shields" for reliable and satisfying cursor interactions.
+- **🧊 Glassmorphism UI:** Sophisticated glass-like interfaces with dynamic blurring and depth.
+- **🎭 Scroll Reveals:** Narrative-driven text and element reveals triggered by scroll position.
+- **🌘 Dynamic Noise & Texture:** An animated film-grain overlay and vignette for a cinematic visual aesthetic.
+- **📱 Fully Responsive:** Meticulously crafted for all devices, from ultra-wide monitors to mobile screens.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend:** [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool:** [Vite 8](https://vitejs.dev/)
+- **3D Engine:** [Three.js](https://threejs.org/) with [@react-three/fiber](https://r3f.docs.pmnd.rs/) & [@react-three/drei](https://github.com/pmndrs/drei)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
+- **Smooth Scroll:** [Lenis](https://lenis.darkroom.engineering/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Analytics:** [PostHog](https://posthog.com/)
+- **SEO:** [React Helmet Async](https://github.com/staylor/react-helmet-async)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/FAYEZ087/webdevguru.git
+   cd webmakers2
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── assets/             # Static assets (images, svgs)
+├── components/         # Reusable UI components (MagneticButton, GlassOrb, etc.)
+├── context/            # React Contexts (Theme, Modal)
+├── hooks/              # Custom React hooks (useSEO, useTheme)
+├── pages/              # Page components (Home, Work, About)
+├── sections/           # Large sections used within pages (Hero, Portfolio, FAQ)
+├── utils/              # Utility functions and analytics
+└── App.tsx             # Main application entry and routing
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🎨 Design System
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+WebMakers2 follows a luxury, "engineered" aesthetic:
+
+- **Typography:**
+  - **Brand/Headers/Body:** *Cormorant Garamond* (Serif) - Authoritative & Luxury feel.
+  - **Functional/Buttons/Legal:** *Montserrat* (Sans-serif) - Modern & Readable.
+- **Visuals:** Dark mode by default, featuring deep space tones, gold accents, and transparent glass layers.
+
+---
+
+## 📈 Analytics & SEO
+
+- **PostHog Integration:** Automated event tracking and page view analysis.
+- **Dynamic SEO:** `useSEO` hook manages meta tags, OpenGraph data, and structured JSON-LD schemas for every route.
+- **Performance:** Optimized asset loading and component lazy loading for lightning-fast metrics.
+
+---
+
+## 📄 License
+
+This project is private and confidential. © 2026 WebDevGuru. All rights reserved.
