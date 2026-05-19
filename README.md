@@ -1,6 +1,6 @@
-# 🚀 Web: Elite Digital Experiences
+# 🚀 WebDevGuru: Elite Digital Experiences
 
-WebMakers2 is a high-end, high-performance digital agency platform built for the next generation of the web. It combines cutting-edge 3D graphics, fluid animations, and a sophisticated design language to deliver an immersive brand experience.
+WebDevGuru is a high-end, high-performance digital agency platform built for the next generation of the web. It combines cutting-edge 3D graphics, fluid animations, and a sophisticated design language to deliver an immersive brand experience.
 
 ![Luxury Web Design](https://img.shields.io/badge/UX%2FUI-Elite-gold)
 ![Performance](https://img.shields.io/badge/Performance-Optimized-brightgreen)
