@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Default: Dark Luxury */
+  --bg: #0A0A0A;
+  --surface-secondary: #111111;
+  --surface-elevated: #141414;
+  --warm-black: #0D0B08;
+  --gold: #C9A84C;
+  --blue: #4F8EF7;
+  --text-primary: #F5F5F5;
+  --text-muted: #6B6B6B;
+  --border: #1E1E1E;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  /* Transitions */
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='solar-flare'] {
+  --bg: #0A0400;
+  --surface-secondary: #1A0D00;
+  --surface-elevated: #2A1500;
+  --warm-black: #0F0600;
+  --gold: #FF8C00; /* Dark Orange */
+  --blue: #FFD700; /* Gold */
+  --text-primary: #FFF5E6;
+  --text-muted: #B38F66;
+  --border: #4D2600;
+}
+
+[data-theme='midnight-royal'] {
+  --bg: #050A18;
+  --surface-secondary: #0B132B;
+  --surface-elevated: #1C2541;
+  --warm-black: #081021;
+  --gold: #C0C0C0; /* Silver */
+  --blue: #4169E1; /* Royal Blue */
+  --text-primary: #E0E1DD;
+  --text-muted: #778DA9;
+  --border: #384259;
+}
+
+[data-theme='forest-luxury'] {
+  --bg: #0D1A13;
+  --surface-secondary: #162B1E;
+  --surface-elevated: #1F3C2A;
+  --warm-black: #0A140F;
+  --gold: #B8860B; /* Antique Gold */
+  --blue: #50C878; /* Emerald */
+  --text-primary: #ECF3F0;
+  --text-muted: #7A8D84;
+  --border: #2C4A36;
+}
+
+[data-theme='neon'] {
+  --bg: #010101;
+  --surface-secondary: #080808;
+  --surface-elevated: #121212;
+  --warm-black: #050505;
+  --gold: #39FF14; /* Neon Green */
+  --blue: #00FFFF; /* Electric Cyan */
+  --text-primary: #FFFFFF;
+  --text-muted: #B0B0B0;
+  --border: #BF00FF; /* Vivid Purple */
+  --neon-pink: #FF00FF;
+}
+
+[data-theme='neon'] .service-card:nth-child(2) { --gold: #00FFFF; --border: #FF00FF; }
+[data-theme='neon'] .service-card:nth-child(3) { --gold: #BF00FF; --border: #39FF14; }
+
+[data-theme='neon'] .project-card:nth-child(even) { --gold: #00FFFF; }
+[data-theme='neon'] .pricing-card.featured { --gold: #FF00FF; --border: #00FFFF; }
+
+[data-theme='soft-rose'] {
+  --bg: #FAF3F0;
+  --surface-secondary: #F5E8E4;
+  --surface-elevated: #EBD9D3;
+  --warm-black: #FDF8F5;
+  --gold: #B87333; /* Copper */
+  --blue: #B76E79; /* Rose Gold */
+  --text-primary: #4A3F3B;
+  --text-muted: #8E7C77;
+  --border: #D8C3BC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+p {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-elevated);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--gold);
+  color: var(--bg);
+}
+
+/* Utility Classes */
+.text-gold { color: var(--gold); }
+.text-blue { color: var(--blue); }
+.bg-warm { background-color: var(--warm-black); }
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+/* Global Sheen Effect */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -150%;
+  width: 20%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: rotate(35deg);
+  pointer-events: none;
+  z-index: 5;
+  animation: sheen-infinite 4s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes sheen-infinite {
+  0% {
+    left: -150%;
+  }
+  30% {
+    left: 30%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.sheen:hover::after {
+  /* Keep it subtle on hover, maybe speed up slightly if preferred, but for now we follow "continuous" mandate */
+  opacity: 0.15;
+}
+
+/* Elite Button Effects */
+.magnetic-wrapper {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.magnetic-wrapper > div {
+  pointer-events: none;
+}
+
+.magnetic-wrapper > div > * {
+  pointer-events: auto;
+}
+
+.btn-content-inner {
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.btn-text-reveal {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-content-inner.hovered .btn-text-reveal {
+  transform: translateY(-110%);
+}
+
+.btn-text-reveal::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 110%;
+  left: 0;
+  white-space: nowrap;
+}
+
+/* Refine existing buttons to support reveal */
+.cta-primary, .cta-secondary, .nav-link-cta, .plan-cta, .cta-button-main {
+  padding: 0 !important; /* Move padding to inner content if using reveal, or keep it but handle overflow */
+}
+
+/* Fix for buttons with reveal - apply padding to the inner button tag */
+.btn-label {
+  display: block;
+  padding: 22px 45px;
+}
+
+.nav-link-cta .btn-label { padding: 12px 24px; }
+.plan-cta .btn-label { padding: 18px; }
+.cta-button-main .btn-label { padding: 25px 60px; }
+
+/* Smooth Scroll Lenis Fix */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

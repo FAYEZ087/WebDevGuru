@@ -1,0 +1,149 @@
+.project-detail {
+  padding-top: 120px;
+  background-color: var(--bg);
+}
+
+.project-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  border-bottom: 1px solid var(--border);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  margin-bottom: 40px;
+  padding: 0;
+  font-size: 14px;
+}
+
+.project-title {
+  font-size: clamp(48px, 10vw, 120px);
+  font-family: var(--font-serif);
+  line-height: 0.9;
+  margin-bottom: 30px;
+}
+
+.project-meta {
+  display: flex;
+  gap: 20px;
+  opacity: 0.6;
+}
+
+.project-info {
+  padding: 100px 10%;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 100px;
+}
+
+.info-main h3 {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.info-text {
+  font-size: 24px;
+  line-height: 1.4;
+  margin-bottom: 60px;
+}
+
+.info-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.stat-card {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+}
+
+.stat-value {
+  display: block;
+  font-size: 32px;
+  font-family: var(--font-serif);
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+.info-details .detail-item {
+  margin-bottom: 60px;
+}
+
+.info-details h4 {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+
+.info-details p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.project-visuals {
+  padding: 0 10% 100px;
+}
+
+.visual-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(197, 165, 114, 0.1) 0%, transparent 70%);
+}
+
+.project-footer {
+  padding: 100px 10%;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.next-label {
+  font-size: 64px;
+  font-family: var(--font-serif);
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}

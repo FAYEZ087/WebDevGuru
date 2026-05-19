@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy — WebDevGuru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A; --surface: #111111; --surface2: #161616;
+      --border: #1E1E1E; --gold: #C9A84C; --gold-dim: #8A6E2F;
+      --text: #F0EDE6; --muted: #6B6B6B;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.75; min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.6;
+    }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 clamp(24px,6vw,80px); height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--gold); }
+    .back-link { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+    .back-link:hover { color: var(--gold); }
+    .back-link::before { content: '←'; font-size: 1rem; }
+
+    .page-hero { position: relative; padding: clamp(60px,10vw,120px) clamp(24px,6vw,80px) clamp(40px,6vw,80px); border-bottom: 1px solid var(--border); overflow: hidden; }
+    .page-hero::after { content: 'COOKIES'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-family: var(--serif); font-size: clamp(80px,12vw,180px); font-weight: 700; color: rgba(201,168,76,0.04); letter-spacing: -0.04em; pointer-events: none; white-space: nowrap; user-select: none; }
+    .label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .label::before { content: ''; width: 32px; height: 1px; background: var(--gold); display: inline-block; }
+    h1 { font-family: var(--serif); font-size: clamp(2rem,5vw,4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--text); max-width: 700px; }
+    .meta { margin-top: 24px; display: flex; gap: 32px; flex-wrap: wrap; }
+    .meta-item { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .meta-item strong { display: block; color: var(--text); font-weight: 500; margin-top: 2px; }
+
+    .layout { display: grid; grid-template-columns: 260px 1fr; gap: 0; max-width: 1200px; margin: 0 auto; padding: 0 clamp(24px,6vw,80px); align-items: start; }
+    .toc { position: sticky; top: 80px; padding: 48px 32px 48px 0; border-right: 1px solid var(--border); }
+    .toc-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+    .toc ol { list-style: none; counter-reset: toc; }
+    .toc ol li { counter-increment: toc; margin-bottom: 4px; }
+    .toc ol li a { display: flex; gap: 10px; align-items: baseline; font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 6px 8px; border-radius: 4px; transition: all 0.2s; line-height: 1.4; }
+    .toc ol li a::before { content: counter(toc,decimal-leading-zero); font-family: var(--mono); font-size: 0.65rem; color: var(--gold-dim); flex-shrink: 0; margin-top: 1px; }
+    .toc ol li a:hover { color: var(--gold); background: rgba(201,168,76,0.06); }
+
+    .content { padding: 48px 0 80px 48px; }
+    section { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--border); animation: fadeUp 0.5s ease both; }
+    section:last-child { border-bottom: none; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .section-number { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+    h2 { font-family: var(--serif); font-size: clamp(1.3rem,2.5vw,1.8rem); font-weight: 700; color: var(--text); margin-bottom: 20px; line-height: 1.2; }
+    h3 { font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--text); margin: 24px 0 10px; }
+    p { color: #B0ABA3; margin-bottom: 16px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    ul { margin: 16px 0; padding-left: 0; list-style: none; }
+    ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: #B0ABA3; font-size: 0.95rem; }
+    ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold-dim); }
+    strong { color: var(--text); font-weight: 500; }
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); transition: border-color 0.2s; }
+    a:hover { border-color: var(--gold); }
+    .highlight-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; }
+    .highlight-box p { margin-bottom: 0; font-size: 0.9rem; }
+
+    /* Cookie cards */
+    .cookie-grid { display: grid; gap: 16px; margin: 24px 0; }
+    .cookie-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; display: grid; grid-template-columns: 1fr auto; gap: 8px 24px; align-items: start; }
+    .cookie-card-header { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .cookie-name { font-family: var(--mono); font-size: 0.85rem; font-weight: 500; color: var(--text); }
+    .badge { display: inline-block; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+    .badge-essential { background: rgba(79,142,247,0.1); color: #4F8EF7; border: 1px solid rgba(79,142,247,0.2); }
+    .badge-analytics { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+    .badge-marketing { background: rgba(180,80,220,0.1); color: #C46FE0; border: 1px solid rgba(180,80,220,0.2); }
+    .cookie-detail { font-size: 0.82rem; color: var(--muted); }
+    .cookie-detail strong { color: #B0ABA3; font-weight: 400; }
+
+    /* Browser instructions */
+    .browser-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+    .browser-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; }
+    .browser-card .browser-name { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .browser-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+
+    /* Cookie banner preview */
+    .banner-preview { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .banner-preview p { font-size: 0.88rem; color: #B0ABA3; margin: 0; flex: 1; min-width: 200px; }
+    .banner-btns { display: flex; gap: 10px; flex-shrink: 0; }
+    .btn-accept { background: var(--gold); color: #0A0A0A; border: none; border-radius: 6px; padding: 8px 18px; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; font-weight: 500; }
+    .btn-decline { background: transparent; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; padding: 8px 18px; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+    .banner-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; opacity: 0.7; }
+
+    footer { border-top: 1px solid var(--border); padding: clamp(32px,6vw,60px) clamp(24px,6vw,80px); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--muted); }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; border: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted); }
+
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; padding: 0 24px; }
+      .toc { display: none; }
+      .content { padding: 32px 0 60px; }
+      .page-hero::after { display: none; }
+      .browser-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">WebDev<span>Guru</span></a>
+    <a href="/" class="back-link">Back to Home</a>
+  </header>
+
+  <div class="page-hero">
+    <div class="label">Legal · Cookies</div>
+    <h1>Cookie Policy</h1>
+    <div class="meta">
+      <div class="meta-item">Effective Date <strong>January 1, 2025</strong></div>
+      <div class="meta-item">Last Updated <strong>May 2025</strong></div>
+      <div class="meta-item">Applies To <strong>webdevguru.tech</strong></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#what-are-cookies">What Are Cookies</a></li>
+        <li><a href="#why-we-use">Why We Use Them</a></li>
+        <li><a href="#types">Types We Use</a></li>
+        <li><a href="#full-list">Full Cookie List</a></li>
+        <li><a href="#third-party">Third-Party Cookies</a></li>
+        <li><a href="#consent">Your Consent</a></li>
+        <li><a href="#manage">Managing Cookies</a></li>
+        <li><a href="#localstorage">localStorage &amp; Sessions</a></li>
+        <li><a href="#updates">Policy Updates</a></li>
+      </ol>
+    </nav>
+
+    <main class="content">
+
+      <section id="what-are-cookies">
+        <div class="section-number">01 / Basics</div>
+        <h2>What Are Cookies?</h2>
+        <p>Cookies are small text files placed on your device when you visit a website. They allow the site to remember information about your visit — such as your preferred language, theme, or whether you have already accepted a cookie banner — making your next visit more efficient.</p>
+        <p>Similar technologies include <strong>localStorage</strong> (browser-side key-value storage), <strong>sessionStorage</strong> (cleared when you close your tab), and <strong>tracking pixels</strong>. This policy covers all of these where relevant to webdevguru.tech.</p>
+        <div class="highlight-box">
+          <p>WebDevGuru uses a minimal, privacy-first approach to cookies. We collect only what is necessary to operate and improve our website. We do not run advertising networks or sell cookie data to third parties.</p>
+        </div>
+      </section>
+
+      <section id="why-we-use">
+        <div class="section-number">02 / Purpose</div>
+        <h2>Why We Use Cookies</h2>
+        <p>We use cookies and similar technologies for the following purposes:</p>
+        <ul>
+          <li><strong>Preference persistence</strong> — remembering your chosen theme (Sovelis, Reliesta, etc.) and locale (English/Hindi) between sessions</li>
+          <li><strong>Analytics</strong> — understanding how visitors use our website so we can improve it (PostHog)</li>
+          <li><strong>Campaign attribution</strong> — understanding which marketing channel brought you to our site (UTM cookies)</li>
+          <li><strong>Performance monitoring</strong> — identifying slow pages or broken interactions</li>
+          <li><strong>A/B testing</strong> — determining which version of our hero or pricing section performs better</li>
+        </ul>
+        <p>We do <strong>not</strong> use cookies for: targeted advertising, cross-site tracking, selling data to brokers, or fingerprinting.</p>
+      </section>
+
+      <section id="types">
+        <div class="section-number">03 / Types</div>
+        <h2>Types of Cookies We Use</h2>
+
+        <h3>Essential Cookies</h3>
+        <p>These are required for the website to function correctly. They cannot be disabled without breaking core features. They do not track you for analytics or advertising purposes.</p>
+
+        <h3>Analytics Cookies</h3>
+        <p>These help us understand visitor behaviour — which pages are most popular, where visitors drop off, and how they interact with our UI elements. We use PostHog, which is privacy-friendly and does not share data with ad networks. Analytics cookies are non-essential and require your consent.</p>
+
+        <h3>Marketing / Attribution Cookies</h3>
+        <p>When you arrive via a campaign link (e.g. an Instagram ad or email), we store the UTM parameters in a cookie for up to 30 days. This helps us understand which campaigns are effective. No personal data is stored in this cookie — only the campaign identifier.</p>
+      </section>
+
+      <section id="full-list">
+        <div class="section-number">04 / Full List</div>
+        <h2>Complete Cookie List</h2>
+        <div class="cookie-grid">
+
+          <div class="cookie-card">
+            <div class="cookie-card-header">
+              <span class="cookie-name">webdevguru_theme</span>
+              <span class="badge badge-essential">Essential</span>
+            </div>
+            <div class="cookie-detail"><strong>Purpose:</strong> Stores your selected visual theme (e.g. Sovelis, Reliesta)</div>
+            <div class="cookie-detail"><strong>Storage:</strong> localStorage</div>
+            <div class="cookie-detail"><strong>Duration:</strong> Persistent (until cleared)</div>
+            <div class="cookie-detail"><strong>Provider:</strong> WebDevGuru (first-party)</div>
+          </div>
+
+          <div class="cookie-card">
+            <div class="cookie-card-header">
+              <span class="cookie-name">NEXT_LOCALE</span>
+              <span class="badge badge-essential">Essential</span>
+            </div>
+            <div class="cookie-detail"><strong>Purpose:</strong> Stores your language preference (en / hi)</div>
+            <div class="cookie-detail"><strong>Storage:</strong> Cookie</div>
+            <div class="cookie-detail"><strong>Duration:</strong> 1 year</div>
+            <div class="cookie-detail"><strong>Provider:</strong> WebDevGuru / next-intl (first-party)</div>
+          </div>
+
+          <div class="cookie-card">
+            <div class="cookie-card-header">
+              <span class="cookie-name">ph_*</span>
+              <span class="badge badge-analytics">Analytics</span>
+            </div>
+            <div class="cookie-detail"><strong>Purpose:</strong> PostHog analytics — tracks page views, session data, UI interaction events (CTA clicks, scroll depth, form opens)</div>
+            <div class="cookie-detail"><strong>Storage:</strong> Cookie + localStorage</div>
+            <div class="cookie-detail"><strong>Duration:</strong> 1 year</div>
+            <div class="cookie-detail"><strong>Provider:</strong> PostHog (third-party) — <a href="https://posthog.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></div>
+          </div>
+
+          <div class="cookie-card">
+            <div class="cookie-card-header">
+              <span class="cookie-name">wm_utm</span>
+              <span class="badge badge-marketing">Marketing</span>
+            </div>
+            <div class="cookie-detail"><strong>Purpose:</strong> Stores UTM campaign parameters (utm_source, utm_campaign) for conversion attribution</div>
+            <div class="cookie-detail"><strong>Storage:</strong> Cookie (set by Next.js middleware)</div>
+            <div class="cookie-detail"><strong>Duration:</strong> 30 days</div>
+            <div class="cookie-detail"><strong>Provider:</strong> WebDevGuru (first-party)</div>
+          </div>
+
+          <div class="cookie-card">
+            <div class="cookie-card-header">
+              <span class="cookie-name">wm_cookie_consent</span>
+              <span class="badge badge-essential">Essential</span>
+            </div>
+            <div class="cookie-detail"><strong>Purpose:</strong> Records whether you have accepted or declined non-essential cookies, so the banner does not appear on every visit</div>
+            <div class="cookie-detail"><strong>Storage:</strong> Cookie</div>
+            <div class="cookie-detail"><strong>Duration:</strong> 1 year</div>
+            <div class="cookie-detail"><strong>Provider:</strong> WebDevGuru (first-party)</div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="third-party">
+        <div class="section-number">05 / Third-Party</div>
+        <h2>Third-Party Cookies</h2>
+        <p>The following third-party services may set cookies or similar tracking technologies when you use our website:</p>
+        <ul>
+          <li><strong>PostHog</strong> — Analytics and session recording. Data stored on PostHog's EU cloud servers. <a href="https://posthog.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+          <li><strong>Vercel</strong> — Our hosting provider may set performance-related cookies for edge routing. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></li>
+          <li><strong>Formspree</strong> — If you submit a contact form, Formspree may set a session cookie during form submission. <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></li>
+        </ul>
+        <p>We do not embed third-party advertising scripts, social media tracking pixels, or Google Analytics on our website.</p>
+      </section>
+
+      <section id="consent">
+        <div class="section-number">06 / Consent</div>
+        <h2>Your Consent</h2>
+        <p>When you first visit webdevguru.tech, you will see a cookie consent banner that looks like this:</p>
+
+        <div class="banner-preview">
+          <div>
+            <div class="banner-label">Cookie Notice</div>
+            <p>We use essential cookies to keep the site running and optional analytics cookies to improve it. No advertising. No third-party tracking.</p>
+          </div>
+          <div class="banner-btns">
+            <button class="btn-decline">Decline</button>
+            <button class="btn-accept">Accept</button>
+          </div>
+        </div>
+
+        <ul>
+          <li><strong>Accept</strong> — Enables analytics (PostHog) and marketing attribution cookies in addition to essential ones</li>
+          <li><strong>Decline</strong> — Only essential cookies are set; PostHog and UTM cookies are not loaded</li>
+        </ul>
+        <p>Your choice is stored in the <code>wm_cookie_consent</code> cookie for 1 year. You can change your preference at any time by clearing your browser cookies or contacting us.</p>
+      </section>
+
+      <section id="manage">
+        <div class="section-number">07 / Managing Cookies</div>
+        <h2>How to Manage or Disable Cookies</h2>
+        <p>You can control cookies directly through your browser settings:</p>
+        <div class="browser-grid">
+          <div class="browser-card">
+            <div class="browser-name">Chrome</div>
+            <p>Settings → Privacy and Security → Cookies and other site data</p>
+          </div>
+          <div class="browser-card">
+            <div class="browser-name">Safari</div>
+            <p>Preferences → Privacy → Manage Website Data</p>
+          </div>
+          <div class="browser-card">
+            <div class="browser-name">Firefox</div>
+            <p>Settings → Privacy &amp; Security → Cookies and Site Data</p>
+          </div>
+          <div class="browser-card">
+            <div class="browser-name">Edge</div>
+            <p>Settings → Cookies and site permissions → Manage and delete cookies</p>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <p>Disabling all cookies may affect your experience. Specifically, your <strong>theme preference</strong> and <strong>language selection</strong> will reset on every visit if localStorage is cleared, as these are stored locally on your device.</p>
+        </div>
+        <h3>Opt Out of PostHog Analytics</h3>
+        <p>To opt out of PostHog analytics specifically, visit <a href="https://posthog.com/privacy#opt-out" target="_blank" rel="noopener">posthog.com/privacy#opt-out</a> or decline analytics cookies via our banner. Declining on our banner will prevent PostHog from loading entirely.</p>
+      </section>
+
+      <section id="localstorage">
+        <div class="section-number">08 / localStorage</div>
+        <h2>localStorage &amp; Session Storage</h2>
+        <p>In addition to cookies, we use browser <strong>localStorage</strong> for certain preferences. Unlike cookies, localStorage data is not sent to our servers with every request — it stays on your device.</p>
+        <ul>
+          <li><strong>webdevguru_theme</strong> — Your selected visual theme</li>
+          <li><strong>ph_*</strong> (PostHog) — Analytics session identifiers stored locally when analytics is accepted</li>
+        </ul>
+        <p>We do not use <strong>sessionStorage</strong> for any tracking purposes. Any sessionStorage usage is limited to temporary UI state (e.g. whether a modal was already shown in the current tab session) and is cleared automatically when you close your tab.</p>
+        <p>You can clear localStorage via your browser's developer tools (Application → Local Storage → webdevguru.tech → Clear All) or through your browser's "Clear Site Data" option.</p>
+      </section>
+
+      <section id="updates">
+        <div class="section-number">09 / Updates</div>
+        <h2>Policy Updates</h2>
+        <p>We may update this Cookie Policy when we add new features, integrate new third-party tools, or to reflect changes in applicable law. When we do:</p>
+        <ul>
+          <li>The "Last Updated" date at the top of this page will be revised</li>
+          <li>If the change is material (e.g. we add a new analytics provider), the cookie consent banner will re-appear to request fresh consent</li>
+          <li>We recommend reviewing this page periodically</li>
+        </ul>
+      </section>
+
+        <p>See also our <a href="/privacy-policy.html">Privacy Policy</a> for how we handle personal data more broadly.</p>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-logo">WebDev<span>Guru</span></div>
+    <div class="footer-links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/refund-policy.html">Refund Policy</a>
+      <a href="/cookie-policy.html">Cookie Policy</a>
+    </div>
+    <div class="footer-copy">© 2025 WebDevGuru. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>

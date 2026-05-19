@@ -1,0 +1,122 @@
+.services {
+  background-color: transparent;
+}
+
+.section-header {
+  margin-bottom: 80px;
+}
+
+.section-title {
+  font-size: clamp(40px, 5vw, 64px);
+  margin-top: 20px;
+  max-width: 600px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+.service-card-link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-card {
+  background-color: var(--surface-secondary);
+  padding: 60px 40px;
+  position: relative;
+  border: 1px solid var(--border);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TiltCard inner wrapper needs to be 100% height too */
+.service-card > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition-smooth);
+}
+
+.service-card:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(201, 168, 76, 0.05);
+  z-index: 10;
+}
+
+.service-card:hover .card-border-top {
+  transform: scaleX(1);
+}
+
+.service-icon-wrapper {
+  margin-bottom: 40px;
+  color: var(--gold);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  stroke-width: 1.5;
+}
+
+.service-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.service-description {
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: var(--text-muted);
+}
+
+.service-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  transition: var(--transition-fast);
+  margin-top: auto;
+}
+
+.service-card:hover .service-footer {
+  opacity: 1;
+  gap: 15px;
+}
+
+@media (max-width: 991px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

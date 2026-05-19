@@ -1,0 +1,217 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: clamp(60px, 8vw, 120px);
+  margin: 30px 0;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.hero-description {
+  font-size: 18px;
+  max-width: 500px;
+  margin-bottom: 50px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cta-primary {
+  background-color: var(--gold);
+  border: 1px solid var(--gold);
+  color: var(--bg);
+  padding: 22px 45px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+}
+
+.cta-secondary {
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 22px 45px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-secondary:hover {
+  background-color: var(--gold);
+  color: var(--bg);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.2);
+}
+
+.hero-visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.abstract-sphere {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.sphere-inner {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, var(--surface-elevated), var(--bg));
+  border-radius: 50%;
+  box-shadow: inset -20px -20px 50px rgba(0,0,0,0.3),
+              inset 20px 20px 50px rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.sphere-inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+}
+
+.sphere-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  z-index: -1;
+  filter: blur(40px);
+  opacity: 0.3;
+  animation: pulse 8s infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 0.5; scale: 1; }
+  to { opacity: 0.8; scale: 1.1; }
+}
+
+.hero-stats {
+  position: relative;
+  margin-top: 100px;
+  width: 100vw;
+  margin-left: -100px;
+  padding: 40px 0;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.stats-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll 40s linear infinite;
+}
+
+.stats-group {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
+}
+
+.stat-item {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.stat-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--gold);
+  border-radius: 50%;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 991px) {
+  .hero {
+    padding: 120px 30px 60px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    margin-top: 0;
+    max-width: 100%;
+  }
+  
+  .hero-description {
+    margin: 0 auto 50px;
+  }
+  
+  .hero-ctas {
+    justify-content: center;
+  }
+  
+  .hero-visual {
+    position: relative;
+    right: 0;
+    top: 0;
+    transform: none;
+    margin: 40px auto;
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-stats {
+    margin-left: -30px;
+    margin-top: 60px;
+  }
+}

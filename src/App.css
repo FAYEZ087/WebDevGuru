@@ -1,0 +1,62 @@
+.app-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: transparent; /* Allow orb to show through */
+}
+
+.noise-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/black-linen.png');
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 10000; /* Above navbar content, below cursor */
+  animation: noise-animation 0.2s infinite steps(1);
+}
+
+@keyframes noise-animation {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, -1%); }
+  20% { transform: translate(-2%, 1%); }
+  30% { transform: translate(1%, -2%); }
+  40% { transform: translate(-1%, 3%); }
+  50% { transform: translate(-2%, 1%); }
+  60% { transform: translate(3%, 0); }
+  70% { transform: translate(0, 2%); }
+  80% { transform: translate(-3%, 1%); }
+  90% { transform: translate(1%, 3%); }
+  100% { transform: translate(2%, 0); }
+}
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+section {
+  width: 100%;
+  padding: 150px 100px;
+  position: relative;
+  z-index: 2;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 991px) {
+  section {
+    padding: 100px 30px;
+  }
+}

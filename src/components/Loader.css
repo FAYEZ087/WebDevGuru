@@ -1,0 +1,127 @@
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+.loader-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(197, 165, 114, 0.05) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  z-index: 5;
+  pointer-events: none;
+  animation: scan 10s linear infinite;
+}
+
+@keyframes scan {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+.loader-content {
+  position: relative;
+  z-index: 10;
+  width: 400px;
+  padding: 40px;
+}
+
+.loader-brand-wrapper {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.loader-brand {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+.loader-tagline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  margin-top: 10px;
+}
+
+.loader-progress-section {
+  width: 100%;
+}
+
+.loader-bar-wrapper {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.loader-bar {
+  height: 100%;
+  background-color: var(--gold);
+  box-shadow: 0 0 20px var(--gold);
+}
+
+.loader-stats {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+.loader-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 1;
+}
+
+.loader-panel {
+  flex: 1;
+  background-color: #0a0a0a;
+  transform-origin: bottom;
+}
+
+.loader-final-reveal {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.reveal-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1em;
+  color: var(--gold);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}

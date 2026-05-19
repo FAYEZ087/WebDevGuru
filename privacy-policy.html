@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — WebDevGuru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0A0A;
+      --surface:   #111111;
+      --surface2:  #161616;
+      --border:    #1E1E1E;
+      --gold:      #C9A84C;
+      --gold-dim:  #8A6E2F;
+      --blue:      #4F8EF7;
+      --text:      #F0EDE6;
+      --muted:     #6B6B6B;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'DM Sans', sans-serif;
+      --mono:      'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(24px, 6vw, 80px);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .back-link {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--gold); }
+    .back-link::before { content: '←'; font-size: 1rem; }
+
+    /* ── HERO BAND ── */
+    .page-hero {
+      position: relative;
+      padding: clamp(60px, 10vw, 120px) clamp(24px, 6vw, 80px) clamp(40px, 6vw, 80px);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .page-hero::after {
+      content: 'PRIVACY';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--serif);
+      font-size: clamp(80px, 15vw, 200px);
+      font-weight: 700;
+      color: rgba(201,168,76,0.04);
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .label::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      max-width: 700px;
+    }
+
+    .meta {
+      margin-top: 24px;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta-item strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 6vw, 80px);
+      align-items: start;
+    }
+
+    /* ── SIDEBAR TOC ── */
+    .toc {
+      position: sticky;
+      top: 80px;
+      padding: 48px 32px 48px 0;
+      border-right: 1px solid var(--border);
+    }
+
+    .toc-title {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .toc ol { list-style: none; counter-reset: toc; }
+
+    .toc ol li {
+      counter-increment: toc;
+      margin-bottom: 4px;
+    }
+
+    .toc ol li a {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 4px;
+      transition: all 0.2s;
+      line-height: 1.4;
+    }
+
+    .toc ol li a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--gold-dim);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .toc ol li a:hover {
+      color: var(--gold);
+      background: rgba(201,168,76,0.06);
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      padding: 48px 0 80px 48px;
+    }
+
+    section {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.5s ease both;
+    }
+
+    section:last-child { border-bottom: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-number {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    p { color: #B0ABA3; margin-bottom: 16px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      margin: 16px 0 16px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li, ol li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      color: #B0ABA3;
+      font-size: 0.95rem;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold-dim);
+      font-weight: 500;
+    }
+
+    ol { counter-reset: items; }
+    ol li { counter-increment: items; }
+    ol li::before {
+      content: counter(items) '.';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+
+    strong { color: var(--text); font-weight: 500; }
+
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); transition: border-color 0.2s; }
+    a:hover { border-color: var(--gold); }
+
+    .highlight-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p { margin-bottom: 0; font-size: 0.9rem; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 0.88rem;
+    }
+
+    .data-table th {
+      background: var(--surface2);
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #B0ABA3;
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: clamp(32px, 6vw, 60px) clamp(24px, 6vw, 80px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+      }
+      .toc { display: none; }
+      .content { padding: 32px 0 60px; }
+      .page-hero::after { display: none; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .footer-copy { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">WebDev<span>Guru</span></a>
+    <a href="/" class="back-link">Back to Home</a>
+  </header>
+
+  <div class="page-hero">
+    <div class="label">Legal · Policy</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">
+      <div class="meta-item">Effective Date <strong>January 1, 2025</strong></div>
+      <div class="meta-item">Last Updated <strong>May 2025</strong></div>
+      <div class="meta-item">Jurisdiction <strong>India (IT Act 2000)</strong></div>
+    </div>
+  </div>
+
+  <div class="layout">
+
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#information-we-collect">Information We Collect</a></li>
+        <li><a href="#how-we-use">How We Use Your Information</a></li>
+        <li><a href="#data-sharing">Data Sharing</a></li>
+        <li><a href="#cookies">Cookies &amp; Tracking</a></li>
+        <li><a href="#data-retention">Data Retention</a></li>
+        <li><a href="#your-rights">Your Rights</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#third-party">Third-Party Services</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#changes">Changes to Policy</a></li>
+      </ol>
+    </nav>
+
+    <main class="content">
+
+      <section id="overview">
+        <div class="section-number">01 / Overview</div>
+        <h2>Who We Are & What This Covers</h2>
+        <p>WebDevGuru ("we", "our", "us") is a bespoke web design and development studio that builds conversion-focused digital experiences for D2C brands, SaaS companies, and high-growth businesses. We are based in India and operate under applicable Indian information technology and data protection law.</p>
+        <div class="highlight-box">
+          <p>This Privacy Policy explains what personal data we collect when you visit <strong>webdevguru.tech</strong>, use our services, or contact us — and how we use, store, and protect it. By using our website, you agree to the practices described here.</p>
+        </div>
+      </section>
+
+      <section id="information-we-collect">
+        <div class="section-number">02 / Data Collection</div>
+        <h2>Information We Collect</h2>
+        <p>We collect only what we need to deliver our services and improve your experience:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Examples</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Contact Data</strong></td>
+              <td>Name, email address, phone number, company name</td>
+              <td>Contact form, scope call booking</td>
+            </tr>
+            <tr>
+              <td><strong>Project Data</strong></td>
+              <td>Business requirements, design preferences, goals</td>
+              <td>Discovery calls, onboarding forms</td>
+            </tr>
+            <tr>
+              <td><strong>Usage Data</strong></td>
+              <td>Pages visited, scroll depth, clicks, session duration</td>
+              <td>Analytics tools (PostHog/Plausible)</td>
+            </tr>
+            <tr>
+              <td><strong>Technical Data</strong></td>
+              <td>IP address, browser type, device type, OS</td>
+              <td>Automatically on site visit</td>
+            </tr>
+            <tr>
+              <td><strong>Communication Data</strong></td>
+              <td>Email threads, WhatsApp messages, call notes</td>
+              <td>Direct communication with our team</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>We do <strong>not</strong> collect sensitive personal data such as financial credentials, government IDs, or biometric information through this website.</p>
+      </section>
+
+      <section id="how-we-use">
+        <div class="section-number">03 / Usage</div>
+        <h2>How We Use Your Information</h2>
+        <p>Your data is used strictly for legitimate business purposes:</p>
+        <ul>
+          <li>Responding to enquiries and scope call requests</li>
+          <li>Delivering web design and development services you have engaged us for</li>
+          <li>Sending project updates, invoices, and delivery communications</li>
+          <li>Improving our website's performance and user experience based on analytics</li>
+          <li>Running A/B tests on our hero and pricing sections to understand what resonates</li>
+          <li>Complying with applicable legal obligations</li>
+        </ul>
+        <p>We do <strong>not</strong> use your data for automated decision-making, profiling, or selling to third-party advertisers.</p>
+      </section>
+
+      <section id="data-sharing">
+        <div class="section-number">04 / Sharing</div>
+        <h2>Data Sharing &amp; Disclosure</h2>
+        <p>We do not sell, rent, or trade your personal information. We share data only in these limited circumstances:</p>
+        <ul>
+          <li><strong>Service Providers:</strong> Tools like Formspree (contact forms), PostHog (analytics), Sanity (CMS), and Vercel (hosting) may process data on our behalf under their own privacy policies.</li>
+          <li><strong>Legal Requirements:</strong> If required by law, court order, or government authority under Indian law (IT Act, 2000).</li>
+          <li><strong>Business Transfer:</strong> In the event of a merger or acquisition, your data may transfer to the successor entity with equivalent protections.</li>
+          <li><strong>With Your Consent:</strong> For any purpose not listed here, we will ask you explicitly.</li>
+        </ul>
+        <div class="highlight-box">
+          <p>All third-party vendors we use are selected for their privacy practices and are contractually bound to protect your data.</p>
+        </div>
+      </section>
+
+      <section id="cookies">
+        <div class="section-number">05 / Cookies</div>
+        <h2>Cookies &amp; Tracking Technologies</h2>
+        <p>We use minimal, privacy-respecting tracking on our website:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Cookie Type</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Essential</strong></td>
+              <td>Theme preference, locale selection</td>
+              <td>1 year (localStorage)</td>
+            </tr>
+            <tr>
+              <td><strong>Analytics</strong></td>
+              <td>Page views, session tracking (PostHog)</td>
+              <td>Session / 1 year</td>
+            </tr>
+            <tr>
+              <td><strong>Marketing</strong></td>
+              <td>UTM campaign attribution cookie</td>
+              <td>30 days</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>You can disable non-essential cookies in your browser settings. This will not affect your ability to use our website, though some personalization features (like theme persistence) may reset.</p>
+        <p>Read more about cookies on <a href="/cookie-policy.html">Cookie Policy</a></p>
+      </section>
+
+      <section id="data-retention">
+        <div class="section-number">06 / Retention</div>
+        <h2>Data Retention</h2>
+        <p>We retain your personal data for as long as necessary to fulfil the purposes described above:</p>
+        <ul>
+          <li><strong>Contact enquiries:</strong> 2 years from last communication</li>
+          <li><strong>Active client project data:</strong> Duration of engagement + 3 years</li>
+          <li><strong>Analytics data:</strong> 12 months, then aggregated/anonymised</li>
+          <li><strong>Legal records:</strong> As required by Indian tax and company law (typically 7 years)</li>
+        </ul>
+        <p>Once retention periods expire, data is securely deleted or anonymised.</p>
+      </section>
+
+      <section id="your-rights">
+        <div class="section-number">07 / Your Rights</div>
+        <h2>Your Rights</h2>
+        <p>Under Indian data protection principles and the IT Act, 2000 (and the forthcoming Digital Personal Data Protection Act, 2023), you have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> — Request a copy of the personal data we hold about you</li>
+          <li><strong>Correction</strong> — Ask us to correct inaccurate or incomplete data</li>
+          <li><strong>Deletion</strong> — Request erasure of your data where we have no legal obligation to retain it</li>
+          <li><strong>Objection</strong> — Object to processing of your data for analytics or marketing purposes</li>
+          <li><strong>Portability</strong> — Receive your data in a structured, machine-readable format</li>
+          <li><strong>Withdrawal of Consent</strong> — Withdraw consent for any non-essential processing at any time</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <div class="section-number">08 / Security</div>
+        <h2>Security Measures</h2>
+        <p>We take reasonable technical and organisational measures to protect your data against unauthorised access, loss, or misuse:</p>
+        <ul>
+          <li>All data in transit is encrypted via HTTPS/TLS</li>
+          <li>Our hosting infrastructure (Vercel) maintains SOC 2 compliance</li>
+          <li>Access to client project data is restricted to authorised team members only</li>
+          <li>Contact form submissions are transmitted via Formspree over encrypted connections</li>
+          <li>We do not store payment credentials — all transactions are handled by third-party payment processors</li>
+        </ul>
+        <p>No method of transmission over the internet is 100% secure. In the unlikely event of a data breach affecting your rights, we will notify you as required by applicable law.</p>
+      </section>
+
+      <section id="third-party">
+        <div class="section-number">09 / Third Parties</div>
+        <h2>Third-Party Services</h2>
+        <p>Our website integrates with the following third-party services, each with their own privacy policy:</p>
+        <ul>
+          <li><strong>Vercel</strong> — Hosting and edge delivery (<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
+          <li><strong>Formspree</strong> — Contact form processing (<a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>)</li>
+          <li><strong>PostHog</strong> — Product analytics (<a href="https://posthog.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
+          <li><strong>Sanity.io</strong> — Content management (<a href="https://www.sanity.io/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
+          <li><strong>Razorpay</strong> — Payment processing for client invoices (<a href="https://razorpay.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>)</li>
+        </ul>
+        <p>We are not responsible for the privacy practices of these services. We encourage you to review their policies.</p>
+      </section>
+
+      <section id="children">
+        <div class="section-number">10 / Children</div>
+        <h2>Children's Privacy</h2>
+        <p>WebDevGuru is a B2B service. Our website and services are not directed to individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has submitted information to us, please contact us and we will delete it promptly.</p>
+      </section>
+
+      <section id="changes">
+        <div class="section-number">11 / Updates</div>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time as our services evolve or regulations change. When we do:</p>
+        <ul>
+          <li>The "Last Updated" date at the top of this page will be revised</li>
+          <li>For material changes, we will notify active clients via email</li>
+          <li>Continued use of our website after updates constitutes acceptance of the revised policy</li>
+        </ul>
+        <p>We recommend reviewing this page periodically.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-logo">WebDev<span>Guru</span></div>
+    <div class="footer-links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+    <div class="footer-copy">© 2025 WebDevGuru. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>

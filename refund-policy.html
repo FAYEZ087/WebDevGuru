@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refund Policy — WebDevGuru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A; --surface: #111111; --surface2: #161616;
+      --border: #1E1E1E; --gold: #C9A84C; --gold-dim: #8A6E2F;
+      --text: #F0EDE6; --muted: #6B6B6B;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.75; min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.6;
+    }
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(24px,6vw,80px); height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--gold); }
+    .back-link { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+    .back-link:hover { color: var(--gold); }
+    .back-link::before { content: '←'; font-size: 1rem; }
+
+    .page-hero { position: relative; padding: clamp(60px,10vw,120px) clamp(24px,6vw,80px) clamp(40px,6vw,80px); border-bottom: 1px solid var(--border); overflow: hidden; }
+    .page-hero::after { content: 'REFUND'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-family: var(--serif); font-size: clamp(80px,15vw,200px); font-weight: 700; color: rgba(201,168,76,0.04); letter-spacing: -0.04em; pointer-events: none; white-space: nowrap; user-select: none; }
+    .label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .label::before { content: ''; width: 32px; height: 1px; background: var(--gold); display: inline-block; }
+    h1 { font-family: var(--serif); font-size: clamp(2rem,5vw,4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--text); max-width: 700px; }
+    .meta { margin-top: 24px; display: flex; gap: 32px; flex-wrap: wrap; }
+    .meta-item { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .meta-item strong { display: block; color: var(--text); font-weight: 500; margin-top: 2px; }
+
+    .layout { display: grid; grid-template-columns: 260px 1fr; gap: 0; max-width: 1200px; margin: 0 auto; padding: 0 clamp(24px,6vw,80px); align-items: start; }
+    .toc { position: sticky; top: 80px; padding: 48px 32px 48px 0; border-right: 1px solid var(--border); }
+    .toc-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+    .toc ol { list-style: none; counter-reset: toc; }
+    .toc ol li { counter-increment: toc; margin-bottom: 4px; }
+    .toc ol li a { display: flex; gap: 10px; align-items: baseline; font-size: 0.82rem; color: var(--muted); text-decoration: none; padding: 6px 8px; border-radius: 4px; transition: all 0.2s; line-height: 1.4; }
+    .toc ol li a::before { content: counter(toc,decimal-leading-zero); font-family: var(--mono); font-size: 0.65rem; color: var(--gold-dim); flex-shrink: 0; margin-top: 1px; }
+    .toc ol li a:hover { color: var(--gold); background: rgba(201,168,76,0.06); }
+
+    .content { padding: 48px 0 80px 48px; }
+    section { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--border); animation: fadeUp 0.5s ease both; }
+    section:last-child { border-bottom: none; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .section-number { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+    h2 { font-family: var(--serif); font-size: clamp(1.3rem,2.5vw,1.8rem); font-weight: 700; color: var(--text); margin-bottom: 20px; line-height: 1.2; }
+    h3 { font-family: var(--sans); font-size: 1rem; font-weight: 500; color: var(--text); margin: 24px 0 10px; }
+    p { color: #B0ABA3; margin-bottom: 16px; font-size: 0.95rem; }
+    p:last-child { margin-bottom: 0; }
+    ul { margin: 16px 0; padding-left: 0; list-style: none; }
+    ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: #B0ABA3; font-size: 0.95rem; }
+    ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold-dim); font-weight: 500; }
+    strong { color: var(--text); font-weight: 500; }
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); transition: border-color 0.2s; }
+    a:hover { border-color: var(--gold); }
+
+    .highlight-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; }
+    .highlight-box p { margin-bottom: 0; font-size: 0.9rem; }
+    .warning-box { background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.2); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .warning-box p { margin-bottom: 0; font-size: 0.9rem; }
+    .danger-box { background: rgba(220,60,60,0.05); border: 1px solid rgba(220,60,60,0.2); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .danger-box p { margin-bottom: 0; font-size: 0.9rem; }
+
+    /* Scenario table */
+    .scenario-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.88rem; }
+    .scenario-table th { background: var(--surface2); color: var(--gold); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    .scenario-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: #B0ABA3; vertical-align: top; }
+    .scenario-table tr:last-child td { border-bottom: none; }
+    .scenario-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .badge { display: inline-block; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+    .badge-yes { background: rgba(80,200,100,0.1); color: #5EC87A; border: 1px solid rgba(80,200,100,0.2); }
+    .badge-no { background: rgba(220,60,60,0.1); color: #E05555; border: 1px solid rgba(220,60,60,0.2); }
+    .badge-partial { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+
+    footer { border-top: 1px solid var(--border); padding: clamp(32px,6vw,60px) clamp(24px,6vw,80px); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--muted); }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; border: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted); }
+
+    @media (max-width: 768px) {
+      .layout { grid-template-columns: 1fr; padding: 0 24px; }
+      .toc { display: none; }
+      .content { padding: 32px 0 60px; }
+      .page-hero::after { display: none; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">WebDev<span>Guru</span></a>
+    <a href="/" class="back-link">Back to Home</a>
+  </header>
+
+  <div class="page-hero">
+    <div class="label">Legal · Refunds</div>
+    <h1>Refund Policy</h1>
+    <div class="meta">
+      <div class="meta-item">Effective Date <strong>January 1, 2025</strong></div>
+      <div class="meta-item">Last Updated <strong>May 2025</strong></div>
+      <div class="meta-item">Applies To <strong>All Plans</strong></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#deposit">Non-Refundable Deposit</a></li>
+        <li><a href="#scenarios">Refund Scenarios</a></li>
+        <li><a href="#partial">Partial Refunds</a></li>
+        <li><a href="#webdevguru-fault">If We Fail to Deliver</a></li>
+        <li><a href="#revisions">Revisions vs Refunds</a></li>
+        <li><a href="#chargebacks">Chargeback Policy</a></li>
+        <li><a href="#retainers">Retainer Refunds</a></li>
+        <li><a href="#process">How to Request</a></li>
+      </ol>
+    </nav>
+
+    <main class="content">
+
+      <section id="overview">
+        <div class="section-number">01 / Overview</div>
+        <h2>Our Refund Philosophy</h2>
+        <p>WebDevGuru invests significant time, creative energy, and resources into every project — much of it front-loaded before a single pixel is shown to the client. Our refund policy reflects this reality while remaining fair to all parties.</p>
+        <div class="highlight-box">
+          <p>We are a service business, not a product store. Once skilled work has been performed, it cannot be "returned." This policy exists to protect both parties and ensure clarity before a project begins.</p>
+        </div>
+        <p>If you have concerns at any stage of a project, we strongly encourage you to raise them directly with your project lead. Most issues are resolvable without a refund.</p>
+      </section>
+
+      <section id="deposit">
+        <div class="section-number">02 / Deposit</div>
+        <h2>Non-Refundable Deposit</h2>
+        <div class="danger-box">
+          <p><strong>All project deposits are strictly non-refundable.</strong> By paying the deposit, you acknowledge and accept this condition unconditionally.</p>
+        </div>
+        <h3>Why the Deposit is Non-Refundable</h3>
+        <p>When you pay your deposit, WebDevGuru immediately:</p>
+        <ul>
+          <li>Reserves your spot in our production schedule, turning away other clients for that window</li>
+          <li>Assigns a project lead and design team to your engagement</li>
+          <li>Begins discovery, research, and planning work</li>
+          <li>Purchases any required third-party assets, fonts, or tools specific to your project</li>
+          <li>Invests time in onboarding calls, brief documents, and project setup</li>
+        </ul>
+        <p>This work begins the moment your deposit is received. Even if you cancel on day one, this time and opportunity cost cannot be recovered — hence the non-refundable nature of the deposit.</p>
+        <div class="warning-box">
+          <p>Deposit amounts by plan: <strong>Launch (₹17,500)</strong> · <strong>Growth (₹37,500)</strong> · <strong>Scale</strong> as defined in your proposal. These amounts are non-refundable under all circumstances.</p>
+        </div>
+      </section>
+
+      <section id="scenarios">
+        <div class="section-number">03 / Scenarios</div>
+        <h2>Refund Scenarios at a Glance</h2>
+        <table class="scenario-table">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Deposit</th>
+              <th>Balance Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Client cancels before kickoff</strong></td>
+              <td><span class="badge badge-no">No Refund</span></td>
+              <td><span class="badge badge-yes">Full Refund</span></td>
+            </tr>
+            <tr>
+              <td><strong>Client cancels mid-project</strong></td>
+              <td><span class="badge badge-no">No Refund</span></td>
+              <td><span class="badge badge-partial">Pro-Rata</span></td>
+            </tr>
+            <tr>
+              <td><strong>Client dissatisfied after delivery</strong></td>
+              <td><span class="badge badge-no">No Refund</span></td>
+              <td><span class="badge badge-no">No Refund</span></td>
+            </tr>
+            <tr>
+              <td><strong>WebDevGuru fails to deliver agreed scope</strong></td>
+              <td><span class="badge badge-partial">Partial</span></td>
+              <td><span class="badge badge-yes">Full Refund</span></td>
+            </tr>
+            <tr>
+              <td><strong>WebDevGuru terminates project</strong></td>
+              <td><span class="badge badge-partial">Pro-Rata</span></td>
+              <td><span class="badge badge-yes">Full Refund</span></td>
+            </tr>
+            <tr>
+              <td><strong>Duplicate / erroneous payment</strong></td>
+              <td><span class="badge badge-yes">Full Refund</span></td>
+              <td><span class="badge badge-yes">Full Refund</span></td>
+            </tr>
+            <tr>
+              <td><strong>Retainer cancelled with notice</strong></td>
+              <td>N/A</td>
+              <td><span class="badge badge-partial">Pro-Rata</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="partial">
+        <div class="section-number">04 / Partial Refunds</div>
+        <h2>Partial Refunds (Mid-Project Cancellation)</h2>
+        <p>If a client cancels a project after kickoff but before final delivery, the following applies:</p>
+        <ul>
+          <li>All work completed to the cancellation date is billed at our standard rate</li>
+          <li>The deposit is retained and applied toward the work completed</li>
+          <li>Any balance paid beyond the deposit that exceeds the value of completed work will be refunded</li>
+          <li>A cancellation invoice will be issued within 5 business days detailing the work completed and any amount due or refundable</li>
+        </ul>
+        <h3>How "Work Completed" is Calculated</h3>
+        <p>We track project progress across defined milestones (Discovery, Design, Development, QA, Launch). The percentage of milestones completed at the time of cancellation determines the billable amount, calculated against the total project value.</p>
+        <div class="highlight-box">
+          <p>All completed work — wireframes, design files, code, assets — will be delivered to the client upon settlement of any outstanding balance, regardless of whether the project was completed.</p>
+        </div>
+      </section>
+
+      <section id="webdevguru-fault">
+        <div class="section-number">05 / Our Fault</div>
+        <h2>If WebDevGuru Fails to Deliver</h2>
+        <p>We hold ourselves to a high standard. If WebDevGuru materially fails to deliver the agreed scope within a reasonable extended timeline, the following remedies apply:</p>
+        <h3>What Qualifies as a Failure to Deliver</h3>
+        <ul>
+          <li>Failure to deliver the agreed website after 2× the contracted timeline with no client-caused delay</li>
+          <li>Delivering a website that materially does not match the signed proposal scope</li>
+          <li>Abandonment of the project by WebDevGuru without cause</li>
+        </ul>
+        <h3>Remedies</h3>
+        <ul>
+          <li><strong>First:</strong> We will work to complete the outstanding deliverables at no additional cost</li>
+          <li><strong>If completion is not possible:</strong> A partial or full refund of fees paid (excluding the deposit) will be issued, proportional to the undelivered scope</li>
+          <li><strong>In full abandonment cases:</strong> A pro-rata refund of the deposit may also be considered at WebDevGuru' discretion</li>
+        </ul>
+        <div class="warning-box">
+          <p>Client-caused delays (late feedback, missing assets, unresponsiveness) do not constitute a failure to deliver by WebDevGuru and do not qualify for refunds.</p>
+        </div>
+      </section>
+
+      <section id="revisions">
+        <div class="section-number">06 / Revisions vs Refunds</div>
+        <h2>Revisions Are Not Refund Grounds</h2>
+        <p>Dissatisfaction with a design direction or subjective preference change is not grounds for a refund. This is why we offer structured revision rounds.</p>
+        <ul>
+          <li>If you dislike the design direction, request a revision — that is what revision rounds exist for</li>
+          <li>If you change your mind about the project concept after work has begun, this is a scope change, not a refund scenario</li>
+          <li>If you feel the deliverable doesn't match the brief, raise it formally and we will address it within the revision process</li>
+        </ul>
+        <p>WebDevGuru will always attempt to resolve dissatisfaction through additional work before any refund discussion. <strong>Refunds are a last resort, not a first response.</strong></p>
+      </section>
+
+      <section id="chargebacks">
+        <div class="section-number">07 / Chargebacks</div>
+        <h2>Chargeback Policy</h2>
+        <div class="danger-box">
+          <p>Filing a chargeback or payment dispute without first contacting WebDevGuru is a violation of these Terms and may result in immediate termination of services, withholding of all deliverables, and legal action to recover the disputed amount plus associated fees.</p>
+        </div>
+        <h3>Before Filing a Dispute</h3>
+        <p>If you have a payment concern, you must contact us and allow 7 business days for resolution before involving your bank or payment provider.</p>
+        <h3>Fraudulent Chargebacks</h3>
+        <p>We maintain detailed records of all project communications, deliverables, and milestones. In the event of a fraudulent chargeback, WebDevGuru will provide this evidence to the payment processor and pursue recovery through all available legal channels.</p>
+        <h3>Legitimate Disputes</h3>
+        <p>If a payment was made in error (duplicate charge, wrong amount), contact us immediately. We will resolve legitimate errors within 5 business days without requiring a formal dispute.</p>
+      </section>
+
+      <section id="retainers">
+        <div class="section-number">08 / Retainers</div>
+        <h2>Retainer &amp; Maintenance Plan Refunds</h2>
+        <p>Monthly maintenance and retainer plans are billed in advance. The following applies:</p>
+        <ul>
+          <li><strong>Cancellation with 14+ days notice:</strong> No charge for the following month; current month is non-refundable</li>
+          <li><strong>Cancellation with less than 14 days notice:</strong> Current month billed in full; no further charges</li>
+          <li><strong>Unused retainer hours:</strong> Do not roll over and are non-refundable at month end</li>
+          <li><strong>Annual retainer cancellation:</strong> Pro-rata refund for unused months, minus a 10% early termination fee</li>
+        </ul>
+        <div class="highlight-box">
+          <p>To cancel a retainer, email <a href="mailto:hello@webdevguru.tech">hello@webdevguru.tech</a> with subject line "Retainer Cancellation — [Your Company Name]" at least 14 days before your next billing date.</p>
+        </div>
+      </section>
+
+      <section id="process">
+        <div class="section-number">09 / Process</div>
+        <h2>How to Request a Refund</h2>
+        <p>To initiate a refund request, follow these steps:</p>
+        <ul>
+          <li><strong>Step 1:</strong> Email <a href="mailto:billing@webdevguru.tech">billing@webdevguru.tech</a> with subject line "Refund Request — [Your Project Name]"</li>
+          <li><strong>Step 2:</strong> Include your full name, company name, invoice number, payment date, and the reason for your request</li>
+          <li><strong>Step 3:</strong> We will acknowledge your request within 2 business days</li>
+          <li><strong>Step 4:</strong> A review will be completed within 7 business days and you will be notified of the outcome</li>
+          <li><strong>Step 5:</strong> Approved refunds are processed within 10 business days to the original payment method</li>
+        </ul>
+        <div class="highlight-box">
+          <p>Refunds to Indian bank accounts (NEFT/UPI) typically appear within 3–5 business days. Card refunds via Razorpay may take 5–10 business days depending on your bank.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-logo">WebDev<span>Guru</span></div>
+    <div class="footer-links">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/refund-policy.html">Refund Policy</a>
+      <a href="/cookie-policy.html">Cookie Policy</a>
+    </div>
+    <div class="footer-copy">© 2025 WebDevGuru. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
